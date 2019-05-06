@@ -54,5 +54,12 @@ end
     @test [Decimal(0.3) / Decimal(0.1), Decimal(0.6) / Decimal(0.1)] == [Decimal(0.3), Decimal(0.6)] ./ Decimal(0.1)
     @test [Decimal(0.3) / 0.1, Decimal(0.6) / 0.1] == [Decimal(0.3), Decimal(0.6)] ./ 0.1
 end
+    
+    @testset "Exponentiation" begin
+    @test Decimal(3.1)^Decimal(3.1) == Decimal(BigFloat(3.1)^3.1)
+    #@test Decimal(3.1)^Decimal(-3.1) == Decimal(BigFloat(3.1)^(-3.1))  #this gives an error in the last digits
+    @test Decimal(2)^Decimal(5) == Decimal(2^5) 
+    @test Decimal(2)^Decimal(-5) == Decimal(2^-5) 
+end
 
 end
