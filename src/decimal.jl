@@ -74,3 +74,8 @@ end
 
 # sign
 Base.signbit(x::Decimal) = x.s != 0
+
+#float, solves #32
+
+Base.float(Decimal) = BigFloat
+Base.float(x::Decimal) = BigFloat(x)
